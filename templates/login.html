@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Ruka-Leufu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body id="top">
+<div class="wrapper row2" id="section6">
+  <section id="testimonials" class="hoc clear" style="padding: 150px 0 210px;"> 
+    <!-- ################################################################################################ -->
+      <div>
+    <form action="{{ url_for('login') }}" method="post" class="contact" style="width: 50%;margin: auto;">
+      <div class="sectiontitle">
+        <p class="heading underline font-x2">Inicio de Sesión</p>
+      </div>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Ingresar Email" name="email" required>
+
+      <label for="password"><b>Contraseña</b></label>
+      <input type="password" placeholder="Ingresar Contraseña" name="password" required>
+      <div class="msg">{{ msg }}</div>
+      <button type="submit" class="btn">Ingresar</button>
+    </form>
+  </div>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+</body>

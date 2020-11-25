@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Ruka-Leufu</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url({{dict_imagenes['imagen_inicio']}});" id="section1"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+      <div class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><i class="fas fa-phone rgtspace-5"></i> +569 {{dict_contenido["telefono"]}}</li>
+          <li><i class="far fa-envelope rgtspace-5"></i> {{dict_contenido["correo"]}}</li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+      <div class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+          <li><a href="{{ url_for('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li id="searchform">
+            <div>
+              <form action="#" method="post">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" placeholder="Ingresar Busqueda">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+<div class="navbar row1">
+  <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <h1><a href="{{ url_for('index') }}"><img class="logo1" src="{{dict_imagenes['imagen_logo_pr']}}" /></a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right"> 
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="#section1">{{dict_contenido["titulo_inicio"]}}</a></li>
+          <li><a href="#section2">{{dict_contenido["titulo_nosotros"]}}</a></li>
+          <li><a href="#section3">{{dict_contenido["titulo_servicios"]}}</a></li>
+          <li><a href="#section4">{{dict_contenido["titulo_atractivos"]}}</a></li>
+          <li><a href="#section5">{{dict_contenido["titulo_como_llegar"]}}</a></li>
+          <li><a href="#section6">{{dict_contenido["titulo_contacto"]}}</a></li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+  </header>
+</div>
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">{{dict_contenido["titulo"]}}</h3>
+      <p>{{dict_contenido["subtitulo"]}}</p>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-image:url({{dict_imagenes['imagen_fondo_nosotros']}});position: initial;" id="section2">
+  <section id="splitfifty" class="hoc container clear" style="padding: 200px 0 200px;">
+    <div class="sectiontitle">
+      <p class="heading underline font-x2">{{dict_contenido["titulo_nosotros"]}}</p>
+    </div>
+    <div class="bgded clear" style="background-image:url({{dict_imagenes['imagen_txt_fondo_nosotros']}});background-position: 0 -200px;"> 
+      <!-- ################################################################################################ -->
+      <article>
+      <div class="just_p">
+        {% for value in dict_contenido["nosotros"] %}
+          {{value}}<br>
+        {% endfor %}
+      </div>
+      </article>
+      <!-- ################################################################################################ -->
+    </div>
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2" style="background-image:url({{dict_imagenes['patron_shatered']}});background-repeat: repeat;" id="section3">
+  <main class="hoc container clear" style="padding: 150px 0 200px;"> 
+    <section id="overview">
+      <div class="sectiontitle" style="margin: 0 auto 30px;">
+        <p class="heading underline font-x2">{{dict_contenido["titulo_servicios"]}}</p>
+      </div>
+    <ul id="latest" class="nospace group">
+      <li class="one_third first">
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas');currentSlide(1, 'modal_cabanas')"><img src="{{dict_imagenes['imagen_pr_cabanas']}}" alt=""></a>
+          <div class="excerpt">
+            <h6 class="heading">{{dict_contenido["titulo_cabanas"]}}</h6>
+            <div>
+              {% for value in dict_contenido["contenido_cabanas"] %}
+                {{value}}<br>
+              {% endfor %}
+              </div>
+          </div>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_tinajas');currentSlide(1, 'modal_tinajas')"><img src="{{dict_imagenes['imagen_pr_tinajas']}}" alt=""></a>
+          <div class="excerpt">
+            <h6 class="heading">{{dict_contenido["titulo_tinajas"]}}</h6>
+            <div>
+              {% for value in dict_contenido["contenido_tinajas"] %}
+                {{value}}<br>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_camping');currentSlide(1, 'modal_camping')"><img src="{{dict_imagenes['imagen_pr_camping']}}" alt=""></a>
+          <div class="excerpt">
+            <h6 class="heading">{{dict_contenido["titulo_camping"]}}</h6>
+            <div>
+              {% for value in dict_contenido["contenido_camping"] %}
+                {{value}}<br>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </li>
+    </ul>
+    </section>
+    <section id="overview">
+      <div class="sectiontitle">
+        <p class="heading underline font-x2">{{dict_contenido["titulo_tarifas"]}}</p>
+      </div>
+      <ul id="latest" class="nospace group">
+      <li class="one_third first">
+        <article>
+            <div class="clear"><i class="fas fa-sun"></i>
+              <h6 class="heading">Temporada Alta</h6>
+            </div>
+          <div class="excerpt topl">
+            <div>
+              {% for value in dict_contenido["tarifa_temporada_alta"] %}
+                {{value}}<br>
+              {% endfor %}
+              </div>
+          </div>
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+            <div class="clear"><i class="fas fa-cloud"></i>
+              <h6 class="heading">Temporada Baja</h6>
+            </div>
+          <div class="excerpt topl">
+            <div>
+              {% for value in dict_contenido["tarifa_temporada_baja"] %}
+                {{value}}<br>
+              {% endfor %}
+              </div>
+          </div>
+        </article>
+      </li>
+      </ul>
+    </section>
+    </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2" id="section4" style="background-color: #c5d6d8;">
+  <div class="hoc container clear" style="padding: 200px 0 200px;"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="heading underline font-x2">{{dict_contenido["titulo_seccion_atractivos"]}}</p>
+    </div>
+    <ul class="nospace group team">
+      {% for i in range(dict_imagenes["imagenes_atractivos"]|length) %}
+        {% if i==0 %}
+        <li class="one_third first">
+          <figure><a class="imgover" href="{{dict_link['link_lago_maihue']}}" target="_blank"><img src="{{dict_imagenes['imagenes_atractivos'][i][0]}}" alt=""></a>
+            <figcaption><strong>{{dict_imagenes['imagenes_atractivos'][i][1]}}</strong> <em>{{dict_imagenes['imagenes_atractivos'][i][2]}}</em></figcaption>
+          </figure>
+        </li>
+        {% elif i==1 %}
+      <li class="one_third">
+        <figure><a class="imgover" href="{{dict_link['link_termas']}}" target="_blank"><img src="{{dict_imagenes['imagenes_atractivos'][i][0]}}" alt=""></a>
+          <figcaption><strong>{{dict_imagenes['imagenes_atractivos'][i][1]}}</strong> <em>{{dict_imagenes['imagenes_atractivos'][i][2]}}</em></figcaption>
+        </figure>
+      </li>
+      {% else %}
+      <li class="one_third">
+        <figure><a class="imgover" href="{{dict_link['link_feria']}}" target="_blank"><img src="{{dict_imagenes['imagenes_atractivos'][i][0]}}" alt=""></a>
+          <figcaption><strong>{{dict_imagenes['imagenes_atractivos'][i][1]}}</strong> <em>{{dict_imagenes['imagenes_atractivos'][i][2]}}</em></figcaption>
+        </figure>
+      </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3" id="section5" style="background-image:url({{dict_imagenes['patron_shatered']}});background-repeat: repeat;">
+  <section class="hoc container clear" style="padding: 150px 0 200px;"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="heading underline font-x2">{{dict_contenido["titulo_como_llegar"]}}</p>
+    </div>
+    <section id="overview" style="margin-left: 25%;">
+      <ul class="nospace group btmspace-80">
+        <li class="one_third">
+          <article>
+            <div class="clear"><a href="{{dict_link['waze']}}" target="_blank"><i class="fas fa-car"></i>
+              <h6 class="heading">Ver en Waze</h6></a>
+            </div>
+          </article>
+        </li>
+        <li class="one_third">
+          <article>
+            <div class="clear"><a href="{{dict_link['google_maps']}}" target="_blank"><i class="fas fa-map-marker"></i>
+              <h6 class="heading">Ver en Google Maps</h6></a>
+            </div>
+          </article>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <div>
+      <center>
+      <img src="{{dict_imagenes['imagen_mapa']}}" alt="" style="width: 900px">
+    </center>
+    </div>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded" style="background-image:url({{dict_imagenes['fondo_contacto']}});" id="section6">
+  <section id="testimonials" class="hoc clear" style="padding: 200px 0 200px;"> 
+    <!-- ################################################################################################ -->
+      <div>
+    <div class="contact">
+      <div class="sectiontitle">
+        <p class="heading underline font-x2">{{dict_contenido["titulo_contacto"]}}</p>
+      </div>
+      <label for="nombre"><b>Nombre</b></label>
+      <input type="text" placeholder="Ingresar Nombre" id="nombre" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Ingresar Email" id="email" required>
+
+      <label for="mensaje"><b>Mensaje</b></label>
+      <textarea class="asd" placeholder="Ingresar Mensaje" id="mensaje" required></textarea>
+      <div id="msg_mail"></div>
+      <button type="button" class="btn" id="send_contact">Enviar Mensaje</button>
+    </div>
+  </div>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay row4" style="background-image:url({{dict_imagenes['img_fondo_pie_pagina']}});">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-50">
+      <h6 class="heading">Ruka-Leufu</h6>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="{{dict_link['facebook']}}" target="_blank"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-instagram" href="{{dict_link['instagram']}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-50">
+    <!-- ################################################################################################ -->
+    <div class="group btmspace-50">
+      <div class="one_quarter">
+        <h6 class="heading">Noticias</h6>
+        <ul class="nospace linklist">
+          <li>
+            <article>
+              <p class="nospace btmspace-10"><a href="#">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p>
+              <time class="block font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="nospace btmspace-10"><a href="#">Mattis ipsum ut leo ut elementum odio sed tellus quisque malesuada bibendum.</a></p>
+              <time class="block font-xs" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time>
+            </article>
+          </li>
+        </ul>
+      </div>
+      <div class="one_quarter">
+        <h6 class="heading">Instagram</h6>
+        <ul class="nospace clear latestimg">
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta1.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta2.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta3.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta4.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta5.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta6.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta7.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta8.png" alt=""></a></li>
+          <li><a class="imgover" href="#"><img src="static/images/instagram/insta8.png" alt=""></a></li>
+        </ul>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <div id="ctdetails" class="clear">
+      <ul class="nospace clear">
+        <li class="one_quarter first">
+          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Llamanos:</strong> +569 {{dict_contenido["telefono"]}}</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Envíanos un Correo:</strong> {{dict_contenido["correo"]}}</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Lunes - Domingo:</strong> {{dict_contenido["horario_pie_pagina"]}}</span></div>
+        </li>
+        <li class="one_quarter">
+          <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Ven a Visitarnos:</strong> Dirígete a <a href="{{dict_link['google_maps']}}">Ubicación</a></span></div>
+        </li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2020 - Todos los derechos reservados - <a href="index.html">Ruka-Leufu</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="modal_cabanas" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cabanas')">&times;</span>
+  <div class="modal-content" >
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption_modal_cabanas"></p>
+    </div>
+    {% for i in range(dict_imagenes["imagenes_cabañas"]|length) %}
+    <div class="mySlides">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabañas"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabañas'][i][0]}}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1,'modal_cabanas')">&#10095;</a>
+
+    <!-- Thumbnail image controls -->
+    {% for i in range(dict_imagenes["imagenes_cabañas"]|length) %}
+    <div class="column">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabañas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas')" alt="{{dict_imagenes['imagenes_cabañas'][i][1]}}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- The Modal/Lightbox -->
+<div id="modal_tinajas" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_tinajas')">&times;</span>
+  <div class="modal-content" >
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption_modal_tinajas"></p>
+    </div>
+    {% for i in range(dict_imagenes["imagenes_tinajas"]|length) %}
+    <div class="mySlides">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_tinajas"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_tinajas'][i][0]}}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1, 'modal_tinajas')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_tinajas')">&#10095;</a>
+
+    <!-- Thumbnail image controls -->
+    {% for i in range(dict_imagenes["imagenes_tinajas"]|length) %}
+    <div class="column">
+      <img class="demo" src="{{dict_imagenes['imagenes_tinajas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_tinajas')" alt="{{dict_imagenes['imagenes_tinajas'][i][1]}}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="modal_camping" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_camping')">&times;</span>
+  <div class="modal-content" >
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption_modal_camping"></p>
+    </div>
+    {% for i in range(dict_imagenes["imagenes_camping"]|length) %}
+    <div class="mySlides">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_camping"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_camping'][i][0]}}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1, 'modal_camping')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_camping')">&#10095;</a>
+
+    <!-- Thumbnail image controls -->
+    {% for i in range(dict_imagenes["imagenes_camping"]|length) %}
+    <div class="column">
+      <img class="demo" src="{{dict_imagenes['imagenes_camping'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_camping')" alt="{{dict_imagenes['imagenes_camping'][i][1]}}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/jquery.backtotop.js"></script>
+<script src="static/js/jquery.mobilemenu.js"></script>
+<script src="static/js/layout.js"></script>
+</body>
+</html>

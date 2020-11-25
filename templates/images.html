@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruka-Leufu</title>
+    <link href="static/assets/vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/css/master.css" rel="stylesheet">
+    <link href="static/assets/vendor/chartsjs/Chart.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/flagiconcss3/css/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="static/images/logos/logo-05_s.png" alt="bootraper logo" class="app-logo" style="margin-top: -10px;">
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="{{ url_for('admin') }}"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('config') }}"><i class="fas fa-cog"></i>Configurar Contenido</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('images') }}"><i class="fas fa-image"></i>Configurar Imagenes</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('upload_files') }}"><i class="fas fa-upload"></i>Subir Imagenes</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('messages') }}"><i class="fas fa-user-friends"></i>Mensajes</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('users') }}"><i class="fas fa-user-friends"></i>Usuarios</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-outline-secondary default-secondary-menu"><i class="fas fa-bars"></i><span></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-user"></i> <span>{{user}}</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Perfil</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Mensajes</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Configuraciones</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="{{ url_for('logout') }}" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="content">
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                <div class="container-fluid">
+                    <div class="page-title">
+                        <h3>Configurar Imagenes</h3>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="inicio-tab" data-toggle="tab" href="#inicio" role="tab" aria-controls="inicio" aria-selected="true">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nosotros-tab" data-toggle="tab" href="#nosotros" role="tab" aria-controls="nosotros" aria-selected="false">Nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="servicios-tab" data-toggle="tab" href="#servicios" role="tab" aria-controls="servicios" aria-selected="false">Servicios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="atractivos-tab" data-toggle="tab" href="#atractivos" role="tab" aria-controls="atractivos" aria-selected="false">Atractivos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="como_llegar-tab" data-toggle="tab" href="#como_llegar" role="tab" aria-controls="como_llegar" aria-selected="false">Cómo Llegar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contacto-tab" data-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Contacto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="logos-tab" data-toggle="tab" href="#logos" role="tab" aria-controls="logos" aria-selected="false">Logos</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="inicio" role="tabpanel" aria-labelledby="inicio-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Inicio</p>
+                                        <form action="{{ url_for('update_images_inicio') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_inicio"] %}
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_inicio"]|length) %}
+                                                        <option value="{{dict_imagenes['list_inicio'][i]}}">{{dict_imagenes["list_inicio"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="nosotros" role="tabpanel" aria-labelledby="nosotros-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Nosotros</p>
+                                        <form action="{{ url_for('update_images_nosotros') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_nosotros"] %}
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_nosotros"]|length) %}
+                                                        <option value="{{dict_imagenes['list_nosotros'][i]}}">{{dict_imagenes["list_nosotros"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="servicios" role="tabpanel" aria-labelledby="servicios-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Servicios</p>
+                                        <form action="{{ url_for('update_images_servicios') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_servicios"] %}
+                                            <p class="text-muted">{{value[4]}}</p>
+                                            <div class="form-group">
+                                                <label for="site-title" class="form-control-label">Titulo</label>
+                                                <input type="text" name="titulo{{value[0]}}" class="form-control" value="{{value[2]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="i-checks">
+                                                {% if value[5]==1 %}
+                                                    <input id="checkboxCustom{{value[0]}}" type="checkbox" value="{{value[5]}}" name="principal{{value[0]}}" checked>
+                                                {% else %}
+                                                    <input id="checkboxCustom{{value[0]}}" type="checkbox" value="{{value[5]}}" name="principal{{value[0]}}">
+                                                {% endif %}
+                                                <label for="checkboxCustom1">Principal</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_servicios"]|length) %}
+                                                        <option value="{{dict_imagenes['list_servicios'][i]}}">{{dict_imagenes["list_servicios"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="atractivos" role="tabpanel" aria-labelledby="atractivos-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Atractivos</p>
+                                        <form action="{{ url_for('update_images_atractivos') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_atractivos"] %}
+                                            <div class="form-group">
+                                                <label for="site-title" class="form-control-label">Titulo</label>
+                                                <input type="text" name="titulo{{value[0]}}" class="form-control" value="{{value[2]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="site-title" class="form-control-label">SubTitulo</label>
+                                                <input type="text" name="subtitulo{{value[0]}}" class="form-control" value="{{value[3]}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_atractivos"]|length) %}
+                                                        <option value="{{dict_imagenes['list_atractivos'][i]}}">{{dict_imagenes["list_atractivos"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="como_llegar" role="tabpanel" aria-labelledby="como_llegar-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Cómo Llegar</p>
+                                        <form action="{{ url_for('update_images_como_llegar') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_como_llegar"] %}
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_como_llegar"]|length) %}
+                                                        <option value="{{dict_imagenes['list_como_llegar'][i]}}">{{dict_imagenes["list_como_llegar"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="contacto-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Contacto</p>
+                                        <form action="{{ url_for('update_images_contacto') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_contacto"] %}
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_contacto"]|length) %}
+                                                        <option value="{{dict_imagenes['list_contacto'][i]}}">{{dict_imagenes["list_contacto"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="logos" role="tabpanel" aria-labelledby="logos-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Logos</p>
+                                        <form action="{{ url_for('update_images_logos') }}" method="post">
+                                        {% for value in dict_imagenes["imagenes_logos"] %}
+                                            <div class="form-group">
+                                                <label class="form-control-label">Imagen Actual</label>
+                                                <img src="{{value[1]}}" style="width: 200px;">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-control-label">Cambiar Imagen</label>
+                                                <select name="imagen{{value[0]}}">
+                                                    <option value=""></option>
+                                                    {% for i in range(dict_imagenes["list_logos"]|length) %}
+                                                        <option value="{{dict_imagenes['list_logos'][i]}}">{{dict_imagenes["list_logos"][i]}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/assets/vendor/jquery3/jquery.min.js"></script>
+    <script src="static/assets/vendor/bootstrap4/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/vendor/fontawesome5/js/solid.min.js"></script>
+    <script src="static/assets/vendor/fontawesome5/js/fontawesome.min.js"></script>
+    <script src="static/assets/vendor/chartsjs/Chart.min.js"></script>
+    <script src="static/assets/js/dashboard-charts.js"></script>
+    <script src="static/assets/js/script.js"></script>
+    <script src="static/js/admin.js"></script>
+</body>
+
+</html>
