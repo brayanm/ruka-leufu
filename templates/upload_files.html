@@ -29,6 +29,9 @@
                     <a href="{{ url_for('images') }}"><i class="fas fa-image"></i>Configurar Imagenes</a>
                 </li>
                 <li>
+                    <a href="{{ url_for('config_link') }}"><i class="fas fa-image"></i>Configurar Enlaces</a>
+                </li>
+                <li>
                     <a href="{{ url_for('upload_files') }}"><i class="fas fa-upload"></i>Subir Imagenes</a>
                 </li>
                 <li>
@@ -94,7 +97,7 @@
                                         <form action="{{ url_for('upload_images') }}" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label for="site-title" class="form-control-label">Seleccionar Carpeta</label>
-                                            <select name="carpeta">
+                                            <select name="carpeta" id="carpeta">
                                                 <option value="inicio">Inicio</option>
                                                 <option value="nosotros">Nosotros</option>
                                                 <option value="servicios">Servicios</option>
@@ -102,6 +105,22 @@
                                                 <option value="como_llegar">Cómo Llegar</option>
                                                 <option value="contacto">Contacto</option>
                                                 <option value="contacto">Logos</option>
+                                                <option value="instagram">Instagram</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="select_servicio" style="display: none;">
+                                            <label for="site-title" class="form-control-label">Seleccionar Servicio</label>
+                                            <select name="servicio">
+                                                <option value="cabañas">Cabañas</option>
+                                                <option value="tinajas">Tinajas</option>
+                                                <option value="camping">Camping</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="select_slider" style="display: none;">
+                                            <label for="site-title" class="form-control-label">Desea Agregar al Deslizador de Imagenes?</label>
+                                            <select name="slider">
+                                                <option value="si">Si</option>
+                                                <option value="no">No</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

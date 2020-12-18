@@ -170,6 +170,7 @@ def index():
 	img_fondo_pie_pagina = ""
 	fondo_contacto = ""
 	patron_shatered = ""
+	imagenes_instagram = []
 	for i in imagenes:
 		if i.seccion=="inicio":
 			imagen_inicio = i.imagen
@@ -201,6 +202,8 @@ def index():
 			fondo_contacto = i.imagen
 		if i.subseccion=="patron_shatered":
 			patron_shatered = i.imagen
+		if i.seccion=="instagram":
+			imagenes_instagram.append(i.imagen)
 	dict_imagenes["imagen_inicio"] = imagen_inicio
 	dict_imagenes["imagenes_cabañas"] = imagenes_cabañas
 	dict_imagenes["imagenes_tinajas"] = imagenes_tinajas
@@ -216,6 +219,7 @@ def index():
 	dict_imagenes["img_fondo_pie_pagina"] = img_fondo_pie_pagina
 	dict_imagenes["fondo_contacto"] = fondo_contacto
 	dict_imagenes["patron_shatered"] = patron_shatered
+	dict_imagenes["imagenes_instagram"] = imagenes_instagram
 	print(dict_imagenes["imagenes_atractivos"])
 	#try:
 	#	User("huichaman.juan@gmail.com", generate_password_hash("antrust..,2020")).save_to_db()
@@ -229,6 +233,7 @@ def index():
 	link_lago_maihue = ""
 	link_termas = ""
 	link_feria = ""
+	link_noticias = []
 	for l in link:
 		if l.tag=="waze":
 			link_waze = l.link
@@ -244,6 +249,12 @@ def index():
 			link_termas = l.link
 		if l.tag=="feria_chabranco":
 			link_feria = l.link
+		if l.seccion=="noticia":
+			myTime = datetime.strptime(str(l.fecha), "%Y-%m-%d %H:%M:%S")
+
+			myFormat = "%Y-%m-%d"
+			new_fecha = myTime.strftime(myFormat)
+			link_noticias.append((l.link, l.titulo, new_fecha))
 	dict_link["waze"] = link_waze
 	dict_link["google_maps"] = link_google_maps
 	dict_link["facebook"] = link_facebook
@@ -251,6 +262,7 @@ def index():
 	dict_link["link_lago_maihue"] = link_lago_maihue
 	dict_link["link_termas"] = link_termas
 	dict_link["link_feria"] = link_feria
+	dict_link["link_noticias"] = link_noticias
 	return render_template('index.html', dict_contenido=dict_contenido, dict_imagenes=dict_imagenes, dict_link=dict_link)
 
 @app.route('/admin', methods=['GET', 'POST'])
@@ -437,6 +449,7 @@ def images():
 		imagenes_como_llegar = []
 		imagenes_contacto = []
 		imagenes_logos = []
+		imagenes_instagram = []
 		dict_imagenes = {}
 		list_inicio = os.listdir("static/images/inicio")
 		list_nosotros = os.listdir("static/images/nosotros")
@@ -445,6 +458,7 @@ def images():
 		list_como_llegar = os.listdir("static/images/como_llegar")
 		list_contacto = os.listdir("static/images/contacto")
 		list_logos = os.listdir("static/images/logos")
+		list_instagram = os.listdir("static/images/instagram")
 
 		for c in imagenes:
 			if c.seccion=="inicio":
@@ -461,6 +475,8 @@ def images():
 				imagenes_contacto.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="logos":
 				imagenes_logos.append((c.id, c.imagen, c.titulo, c.subtitulo))
+			if c.seccion=="instagram":
+				imagenes_instagram.append((c.id, c.imagen, c.titulo, c.subtitulo))
 		dict_imagenes["imagenes_inicio"] = imagenes_inicio
 		dict_imagenes["imagenes_nosotros"] = imagenes_nosotros
 		dict_imagenes["imagenes_servicios"] = imagenes_servicios
@@ -468,6 +484,7 @@ def images():
 		dict_imagenes["imagenes_como_llegar"] = imagenes_como_llegar
 		dict_imagenes["imagenes_contacto"] = imagenes_contacto
 		dict_imagenes["imagenes_logos"] = imagenes_logos
+		dict_imagenes["imagenes_instagram"] = imagenes_instagram
 		dict_imagenes["list_inicio"] = list_inicio
 		dict_imagenes["list_nosotros"] = list_nosotros
 		dict_imagenes["list_servicios"] = list_servicios
@@ -475,6 +492,7 @@ def images():
 		dict_imagenes["list_como_llegar"] = list_como_llegar
 		dict_imagenes["list_contacto"] = list_contacto
 		dict_imagenes["list_logos"] = list_logos
+		dict_imagenes["list_instagram"] = list_instagram
 		return render_template('images.html', user=session['username'], dict_imagenes=dict_imagenes)
 	return redirect(url_for('login'))
 
@@ -598,14 +616,43 @@ def update_images_logos():
 	flash('Actualización Imagenes Logos Exitosa')
 	return redirect(url_for('images'))
 
+@app.route('/update_images_instagram', methods=['POST'])
+def update_images_instagram():
+	connection = engine.connect()
+	imagenes = connection.execute('SELECT * FROM imagen where seccion="instagram"').fetchall()
+	for c in imagenes:
+		if c.seccion=="instagram":
+			imagen = request.form['imagen'+str(c.id)]
+			new_img = "static/images/instagram/"+imagen
+			if imagen!="":
+				connection.execute('Update imagen set imagen = "'+new_img+'" where id = '+str(c.id))
+	flash('Actualización Imagenes Logos Exitosa')
+	return redirect(url_for('images'))
+
 @app.route('/upload_images', methods=['POST'])
 def upload_images():
+	connection = engine.connect()
 	carpeta = request.form['carpeta']
 	path = "static/images/"+carpeta+"/"
-	for uploaded_file in request.files.getlist('files'):
-		if uploaded_file.filename != '':
-			print(uploaded_file.filename)
-			uploaded_file.save(path+uploaded_file.filename)
+	if carpeta=="servicios":
+		servicio = request.form['servicio']
+		slider = request.form['slider']
+		fecha = str(datetime.now())
+		for uploaded_file in request.files.getlist('files'):
+			if uploaded_file.filename != '':
+				print(uploaded_file.filename)
+				uploaded_file.save(path+uploaded_file.filename)
+				if slider=="si":
+					try:
+						file = path+uploaded_file.filename
+						connection.execute('INSERT INTO imagen (imagen, usuario, modificado, seccion, subseccion) VALUES ("'+file+'", 1, "'+fecha+'", "servicios", "'+servicio+'")')
+					except Exception as e:
+						print(e)
+	else:
+		for uploaded_file in request.files.getlist('files'):
+			if uploaded_file.filename != '':
+				print(uploaded_file.filename)
+				uploaded_file.save(path+uploaded_file.filename)
 	flash('Imagenes subidas exitosamente')
 	return redirect(url_for('upload_files'))
 
@@ -639,6 +686,36 @@ def messages():
 		mensajes = connection.execute('SELECT * FROM mensaje').fetchall()
 		return render_template('messages.html', user=session['username'], mensajes=mensajes)
 	return redirect(url_for('login'))
+
+
+@app.route('/config_link', methods=['GET', 'POST'])
+def config_link():
+	if 'loggedin' in session:
+		connection = engine.connect()
+		links = connection.execute('SELECT * FROM link').fetchall()
+		return render_template('link.html', user=session['username'], links=links)
+	return redirect(url_for('login'))
+
+@app.route('/update_enlaces', methods=['POST'])
+def update_enlaces():
+	connection = engine.connect()
+	links = connection.execute('SELECT * FROM link').fetchall()
+	for l in links:
+		if l.seccion=="noticia":
+			titulo = request.form['titulo'+str(l.id)]
+			link = request.form['link'+str(l.id)]
+			fecha = str(datetime.now())
+			connection.execute('Update link set link = "'+link+'", titulo = "'+titulo+'", fecha = "'+fecha+'" where id = '+str(l.id))
+			sql = "UPDATE link SET link = %s, titulo = %s, fecha = %s WHERE id = %s"
+			val = (link, titulo, fecha, str(l.id))
+			connection.execute(sql, val)
+		else:
+			link = str(request.form['link'+str(l.id)])
+			sql = "UPDATE link SET link = %s WHERE id = %s"
+			val = (link, str(l.id))
+			connection.execute(sql, val)
+	flash('Actualización de Enlaces Exitosa')
+	return redirect(url_for('config_link'))
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':

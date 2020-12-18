@@ -65,73 +65,60 @@
                 </div>
             </nav>
             <div class="content">
+                {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul class=flashes>
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="icon-big text-center">
-                                                <i class="violet fas fa-eye"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="detail text-center">
-                                                <p>Visitas</p>
-                                                <span class="number">28</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <hr />
-                                        <div class="stats">
-                                            <i class="fas fa-stopwatch"></i> En las últimas 24 Horas
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-3 mt-3">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="icon-big text-center">
-                                                <i class="orange fas fa-envelope"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="detail text-center">
-                                                <p>Mensajes</p>
-                                                <span class="number">{{cant_mensajes}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <hr />
-                                        <div class="stats">
-                                            <i class="fas fa-envelope-open-text"></i> En los últimos 7 días
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="page-title">
+                        <h3>Configurar Enlaces</h3>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="head">
-                                        <h4 class="mb-0">Resumen de tráfico</h4>
-                                        <p class="text-muted">Los datos de tráfico de su sitio web durante todo el año</p>
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="inicio-tab" data-toggle="tab" href="#inicio" role="tab" aria-controls="inicio" aria-selected="true">Enlaces Generales</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="inicio" role="tabpanel" aria-labelledby="inicio-tab">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Actualizar Enlaces</p>
+                                        <form action="{{ url_for('update_enlaces') }}" method="post">
+                                        {% for value in links %}
+                                            {% if value.seccion=="noticia" %}
+                                                <div class="form-group">
+                                                    <label for="site-description" class="form-control-label">{{value.tag}}</label>
+                                                    <textarea class="form-control" name="titulo{{value.id}}">{{value.titulo}}</textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="site-description" class="form-control-label">Link {{value.tag}}</label>
+                                                    <textarea class="form-control" name="link{{value.id}}">{{value.link}}</textarea>
+                                                </div>
+                                            {% else %}
+                                                <div class="form-group">
+                                                    <label for="site-description" class="form-control-label">{{value.titulo}}</label>
+                                                    <textarea class="form-control" name="link{{value.id}}">{{value.link}}</textarea>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Guardar</button>
+                                        </div>
+                                        </form>
                                     </div>
-                                    <div class="canvas-wrapper">
-                                        <canvas class="chart" id="trafficflow"></canvas>
-                                    </div>
-                                    <div class="ui hidden divider"></div>
                                 </div>
-                            </div>
+                            </div>                         
                         </div>
                     </div>
                 </div>
@@ -145,6 +132,7 @@
     <script src="static/assets/vendor/chartsjs/Chart.min.js"></script>
     <script src="static/assets/js/dashboard-charts.js"></script>
     <script src="static/assets/js/script.js"></script>
+    <script src="static/js/admin.js"></script>
 </body>
 
 </html>

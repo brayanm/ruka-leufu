@@ -15,12 +15,12 @@
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay" style="background-image:url({{dict_imagenes['imagen_inicio']}});" id="section1"> 
   <!-- ################################################################################################ -->
-  <div class="wrapper row0">
+  <div class="wrapper row0" style="border-color: rgba(255,255,255,.3);position: fixed;z-index: 1">
     <div id="topbar" class="hoc clear">
       <div class="fl_left"> 
         <!-- ################################################################################################ -->
         <ul class="nospace">
-          <li><i class="fas fa-phone rgtspace-5"></i> +569 {{dict_contenido["telefono"]}}</li>
+          <li><i class="fas fa-phone rgtspace-5"></i> {{dict_contenido["telefono"]}}</li>
           <li><i class="far fa-envelope rgtspace-5"></i> {{dict_contenido["correo"]}}</li>
         </ul>
         <!-- ################################################################################################ -->
@@ -49,7 +49,7 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-<div class="navbar row1">
+<div class="navbar row1" style="margin-top: 40px;z-index: 0">
   <header id="header" class="hoc clear">
       <div id="logo" class="fl_left"> 
         <!-- ################################################################################################ -->
@@ -74,7 +74,7 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <div id="pageintro" class="hoc clear"> 
+  <div id="pageintro" class="hoc clear" style="padding: 300px 0 400px;"> 
     <!-- ################################################################################################ -->
     <article>
       <h3 class="heading">{{dict_contenido["titulo"]}}</h3>
@@ -313,32 +313,22 @@
       <div class="one_quarter">
         <h6 class="heading">Noticias</h6>
         <ul class="nospace linklist">
+          {% for value in dict_link["link_noticias"] %}
           <li>
             <article>
-              <p class="nospace btmspace-10"><a href="#">Mauris nam odio dui vestibulum a molestie ac pulvinar a tellus donec nisi dui.</a></p>
-              <time class="block font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
+              <p class="nospace btmspace-10"><a href="{{value[0]}}" target="_blank">{{value[1]}}</a></p>
+              <time class="block font-xs" datetime="2045-04-06">{{value[2]}}</time>
             </article>
           </li>
-          <li>
-            <article>
-              <p class="nospace btmspace-10"><a href="#">Mattis ipsum ut leo ut elementum odio sed tellus quisque malesuada bibendum.</a></p>
-              <time class="block font-xs" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time>
-            </article>
-          </li>
+          {% endfor %}
         </ul>
       </div>
       <div class="one_quarter">
         <h6 class="heading">Instagram</h6>
         <ul class="nospace clear latestimg">
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta1.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta2.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta3.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta4.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta5.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta6.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta7.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta8.png" alt=""></a></li>
-          <li><a class="imgover" href="#"><img src="static/images/instagram/insta8.png" alt=""></a></li>
+          {% for value in dict_imagenes["imagenes_instagram"] %}
+            <li><a class="imgover" href="{{dict_link['instagram']}}" target="_blank"><img src="{{value}}" alt=""></a></li>
+          {% endfor %}
         </ul>
       </div>
       <!-- ################################################################################################ -->
@@ -346,7 +336,7 @@
     <div id="ctdetails" class="clear">
       <ul class="nospace clear">
         <li class="one_quarter first">
-          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Llamanos:</strong> +569 {{dict_contenido["telefono"]}}</span></div>
+          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Llamanos:</strong>  {{dict_contenido["telefono"]}}</span></div>
         </li>
         <li class="one_quarter">
           <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Envíanos un Correo:</strong> {{dict_contenido["correo"]}}</span></div>
