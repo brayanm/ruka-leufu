@@ -9,7 +9,7 @@ from datetime import datetime
 # Create the Flask object for the application
 app = Flask(__name__)
 app.secret_key = 'ckpZQrmDFXXEkIfRYh3nxVa61ycYdoP6'
-engine = create_engine('mysql://root:@localhost:3306/ruka_leufu')
+engine = create_engine('mysql://root:Antrust..,2020@localhost:3306/ruka_leufu')
 mail= Mail(app)
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -722,4 +722,5 @@ if __name__ == '__main__':
     # start the Flask Web Application
     # While it can be run on any feasible IP, IP = 0.0.0.0 renders the web app on
     # the host machine's localhost and is discoverable by other machines on the same network 
-    app.run("0.0.0.0", port="8080")
+    #app.run("0.0.0.0", port="8080")
+    app.run()
