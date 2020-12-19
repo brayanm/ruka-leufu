@@ -100,13 +100,13 @@ def index():
 			titulo = c.contenido
 		if c.tag_contenido=="subtitulo":
 			subtitulo = c.contenido
-		if c.tag_contenido=="titulo_cabañas":
+		if c.tag_contenido=="titulo_cabanas":
 			titulo_cabanas = c.contenido
 		if c.tag_contenido=="titulo_tinajas":
 			titulo_tinajas = c.contenido
 		if c.tag_contenido=="titulo_camping":
 			titulo_camping = c.contenido
-		if c.tag_contenido=="contenido_cabañas":
+		if c.tag_contenido=="contenido_cabanas":
 			contenido_cabanas = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_tinajas":
 			contenido_tinajas = c.contenido.split("\r")
@@ -157,7 +157,7 @@ def index():
 	dict_contenido["titulo_seccion_atractivos"] = titulo_seccion_atractivos
 	dict_contenido["horario_pie_pagina"] = horario_pie_pagina
 	imagen_inicio = ""
-	imagenes_cabañas = []
+	imagenes_cabanas = []
 	imagenes_tinajas = []
 	imagenes_camping = []
 	imagenes_atractivos = []
@@ -175,8 +175,8 @@ def index():
 	for i in imagenes:
 		if i.seccion=="inicio":
 			imagen_inicio = i.imagen
-		if i.subseccion=="cabañas":
-			imagenes_cabañas.append((i.imagen, i.titulo))
+		if i.subseccion=="cabanas":
+			imagenes_cabanas.append((i.imagen, i.titulo))
 		if i.subseccion=="tinajas":
 			imagenes_tinajas.append((i.imagen, i.titulo))
 		if i.subseccion=="camping":
@@ -185,7 +185,7 @@ def index():
 			imagenes_atractivos.append((i.imagen, i.titulo, i.subtitulo))
 		if i.seccion=="como_llegar":
 			imagen_mapa = i.imagen
-		if i.subseccion=="cabañas" and i.principal==1:
+		if i.subseccion=="cabanas" and i.principal==1:
 			imagen_pr_cabanas = i.imagen
 		if i.subseccion=="tinajas" and i.principal==1:
 			imagen_pr_tinajas = i.imagen
@@ -206,7 +206,7 @@ def index():
 		if i.seccion=="instagram":
 			imagenes_instagram.append(i.imagen)
 	dict_imagenes["imagen_inicio"] = imagen_inicio
-	dict_imagenes["imagenes_cabañas"] = imagenes_cabañas
+	dict_imagenes["imagenes_cabanas"] = imagenes_cabanas
 	dict_imagenes["imagenes_tinajas"] = imagenes_tinajas
 	dict_imagenes["imagenes_camping"] = imagenes_camping
 	dict_imagenes["imagenes_atractivos"] = imagenes_atractivos
@@ -389,14 +389,14 @@ def update_nosotros():
 @app.route('/update_servicios', methods=['POST'])
 def update_servicios():
 	connection = engine.connect()
-	titulo_cabañas = request.form['titulo_cabañas']
-	connection.execute('Update contenido set contenido = "'+titulo_cabañas+'" where tag_contenido = "titulo_cabañas"')
+	titulo_cabanas = request.form['titulo_cabanas']
+	connection.execute('Update contenido set contenido = "'+titulo_cabanas+'" where tag_contenido = "titulo_cabanas"')
 	titulo_tinajas = request.form['titulo_tinajas']
 	connection.execute('Update contenido set contenido = "'+titulo_tinajas+'" where tag_contenido = "titulo_tinajas"')
 	titulo_camping = request.form['titulo_camping']
 	connection.execute('Update contenido set contenido = "'+titulo_camping+'" where tag_contenido = "titulo_camping"')
-	contenido_cabañas = request.form['contenido_cabañas']
-	connection.execute('Update contenido set contenido = "'+contenido_cabañas+'" where tag_contenido = "contenido_cabañas"')
+	contenido_cabanas = request.form['contenido_cabanas']
+	connection.execute('Update contenido set contenido = "'+contenido_cabanas+'" where tag_contenido = "contenido_cabanas"')
 	contenido_tinajas = request.form['contenido_tinajas']
 	connection.execute('Update contenido set contenido = "'+contenido_tinajas+'" where tag_contenido = "contenido_tinajas"')
 	contenido_camping = request.form['contenido_camping']

@@ -371,10 +371,10 @@
     <div class="caption-container">
       <p id="caption_modal_cabanas"></p>
     </div>
-    {% for i in range(dict_imagenes["imagenes_cabañas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas"]|length) %}
     <div class="mySlides">
-      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabañas"]|length }}</div>
-      <img src="{{dict_imagenes['imagenes_cabañas'][i][0]}}" style="width:100%">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabanas'][i][0]}}" style="width:100%">
     </div>
     {% endfor %}
 
@@ -383,9 +383,9 @@
     <a class="next" onclick="plusSlides(1,'modal_cabanas')">&#10095;</a>
 
     <!-- Thumbnail image controls -->
-    {% for i in range(dict_imagenes["imagenes_cabañas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas"]|length) %}
     <div class="column">
-      <img class="demo" src="{{dict_imagenes['imagenes_cabañas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas')" alt="{{dict_imagenes['imagenes_cabañas'][i][1]}}">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabanas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas')" alt="{{dict_imagenes['imagenes_cabanas'][i][1]}}">
     </div>
     {% endfor %}
   </div>
