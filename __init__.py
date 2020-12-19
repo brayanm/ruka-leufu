@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 from flask import Response, Flask, render_template, request, jsonify, redirect, url_for, session, json, flash, make_response, send_file
 from sqlalchemy import create_engine
