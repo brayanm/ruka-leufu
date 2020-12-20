@@ -131,7 +131,7 @@ def index():
 		if c.tag_contenido=="titulo_inicio":
 			titulo_inicio = c.contenido
 		if c.tag_contenido=="titulo_como_llegar":
-			titulo_como_llegar = c.contenido
+			titulo_como_llegar = c.contenido.encode('UTF-8')
 		if c.tag_contenido=="titulo_contacto":
 			titulo_contacto = c.contenido
 		if c.tag_contenido=="titulo_seccion_atractivos":
