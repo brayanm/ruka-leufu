@@ -215,7 +215,7 @@ def index():
 	dict_imagenes["imagenes_camping"] = imagenes_camping
 	dict_imagenes["imagenes_atractivos"] = imagenes_atractivos
 	dict_imagenes["imagen_mapa"] = imagen_mapa
-	dict_imagenes["imagen_pr_cabanas"] = imagen_pr_cabanas
+	dict_imagenes["imagen_pr_cabanas"] = "static/images/servicios/cabaña8.jpg"
 	dict_imagenes["imagen_pr_tinajas"] = imagen_pr_tinajas
 	dict_imagenes["imagen_pr_camping"] = imagen_pr_camping
 	dict_imagenes["imagen_fondo_nosotros"] = imagen_fondo_nosotros
