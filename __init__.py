@@ -467,21 +467,21 @@ def images():
 
 		for c in imagenes:
 			if c.seccion=="inicio":
-				imagenes_inicio.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_inicio.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
 			if c.seccion=="nosotros":
-				imagenes_nosotros.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_nosotros.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
 			if c.seccion=="servicios":
-				imagenes_servicios.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.subseccion.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_servicios.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.subseccion.decode('latin-1'), c.principal))
 			if c.seccion=="atractivos":
-				imagenes_atractivos.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_atractivos.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
 			if c.seccion=="como_llegar":
-				imagenes_como_llegar.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_como_llegar.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
 			if c.seccion=="contacto":
-				imagenes_contacto.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal.decode('latin-1')))
+				imagenes_contacto.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
 			if c.seccion=="logos":
-				imagenes_logos.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
+				imagenes_logos.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
 			if c.seccion=="instagram":
-				imagenes_instagram.append((c.id.decode('latin-1'), c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
+				imagenes_instagram.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
 		dict_imagenes["imagenes_inicio"] = imagenes_inicio
 		dict_imagenes["imagenes_nosotros"] = imagenes_nosotros
 		dict_imagenes["imagenes_servicios"] = imagenes_servicios
