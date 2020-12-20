@@ -179,7 +179,7 @@ def index():
 	for i in imagenes:
 		if i.seccion=="inicio":
 			imagen_inicio = i.imagen.decode('latin-1')
-		if i.subseccion=="cabanas":
+		if i.subseccion=="cabañas":
 			imagenes_cabanas.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
 		if i.subseccion=="tinajas":
 			imagenes_tinajas.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
