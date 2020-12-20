@@ -179,7 +179,7 @@ def index():
 	for i in imagenes:
 		if i.seccion=="inicio":
 			imagen_inicio = i.imagen.decode('latin-1')
-		if i.subseccion=="cabañas":
+		if i.subseccion=="cabanas":
 			imagenes_cabanas.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
 		if i.subseccion=="tinajas":
 			imagenes_tinajas.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
@@ -189,7 +189,7 @@ def index():
 			imagenes_atractivos.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1'), i.subtitulo.decode('latin-1')))
 		if i.seccion=="como_llegar":
 			imagen_mapa = i.imagen.decode('latin-1')
-		if i.subseccion=="cabañas" and i.principal==1:
+		if i.subseccion=="cabanas" and i.principal==1:
 			imagen_pr_cabanas = i.imagen.decode('latin-1')
 		if i.subseccion=="tinajas" and i.principal==1:
 			imagen_pr_tinajas = i.imagen.decode('latin-1')
@@ -215,7 +215,7 @@ def index():
 	dict_imagenes["imagenes_camping"] = imagenes_camping
 	dict_imagenes["imagenes_atractivos"] = imagenes_atractivos
 	dict_imagenes["imagen_mapa"] = imagen_mapa
-	dict_imagenes["imagen_pr_cabanas"] = "static/images/servicios/cabaña8.jpg"
+	dict_imagenes["imagen_pr_cabanas"] = imagen_pr_cabanas
 	dict_imagenes["imagen_pr_tinajas"] = imagen_pr_tinajas
 	dict_imagenes["imagen_pr_camping"] = imagen_pr_camping
 	dict_imagenes["imagen_fondo_nosotros"] = imagen_fondo_nosotros
