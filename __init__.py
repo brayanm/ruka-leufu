@@ -189,7 +189,7 @@ def index():
 			imagenes_atractivos.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1'), i.subtitulo.decode('latin-1')))
 		if i.seccion=="como_llegar":
 			imagen_mapa = i.imagen.decode('latin-1')
-		if i.subseccion=="cabanas" and i.principal==1:
+		if i.subseccion=="cabañas" and i.principal==1:
 			imagen_pr_cabanas = i.imagen.decode('latin-1')
 		if i.subseccion=="tinajas" and i.principal==1:
 			imagen_pr_tinajas = i.imagen.decode('latin-1')
