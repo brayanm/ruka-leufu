@@ -209,22 +209,22 @@ def index():
 			patron_shatered = i.imagen
 		if i.seccion=="instagram":
 			imagenes_instagram.append(i.imagen)
-	dict_imagenes["imagen_inicio"] = imagen_inicio.decode('latin-1').
-	dict_imagenes["imagenes_cabanas"] = imagenes_cabanas.decode('latin-1').
-	dict_imagenes["imagenes_tinajas"] = imagenes_tinajas.decode('latin-1').
-	dict_imagenes["imagenes_camping"] = imagenes_camping.decode('latin-1').
-	dict_imagenes["imagenes_atractivos"] = imagenes_atractivos.decode('latin-1').
-	dict_imagenes["imagen_mapa"] = imagen_mapa.decode('latin-1').
-	dict_imagenes["imagen_pr_cabanas"] = imagen_pr_cabanas.decode('latin-1').
-	dict_imagenes["imagen_pr_tinajas"] = imagen_pr_tinajas.decode('latin-1').
-	dict_imagenes["imagen_pr_camping"] = imagen_pr_camping.decode('latin-1').
-	dict_imagenes["imagen_fondo_nosotros"] = imagen_fondo_nosotros.decode('latin-1').
-	dict_imagenes["imagen_txt_fondo_nosotros"] = imagen_txt_fondo_nosotros.decode('latin-1').
-	dict_imagenes["imagen_logo_pr"] = imagen_logo_pr.decode('latin-1').
-	dict_imagenes["img_fondo_pie_pagina"] = img_fondo_pie_pagina.decode('latin-1').
-	dict_imagenes["fondo_contacto"] = fondo_contacto.decode('latin-1').
-	dict_imagenes["patron_shatered"] = patron_shatered.decode('latin-1').
-	dict_imagenes["imagenes_instagram"] = imagenes_instagram.decode('latin-1').
+	dict_imagenes["imagen_inicio"] = imagen_inicio.decode('latin-1')
+	dict_imagenes["imagenes_cabanas"] = imagenes_cabanas.decode('latin-1')
+	dict_imagenes["imagenes_tinajas"] = imagenes_tinajas.decode('latin-1')
+	dict_imagenes["imagenes_camping"] = imagenes_camping.decode('latin-1')
+	dict_imagenes["imagenes_atractivos"] = imagenes_atractivos.decode('latin-1')
+	dict_imagenes["imagen_mapa"] = imagen_mapa.decode('latin-1')
+	dict_imagenes["imagen_pr_cabanas"] = imagen_pr_cabanas.decode('latin-1')
+	dict_imagenes["imagen_pr_tinajas"] = imagen_pr_tinajas.decode('latin-1')
+	dict_imagenes["imagen_pr_camping"] = imagen_pr_camping.decode('latin-1')
+	dict_imagenes["imagen_fondo_nosotros"] = imagen_fondo_nosotros.decode('latin-1')
+	dict_imagenes["imagen_txt_fondo_nosotros"] = imagen_txt_fondo_nosotros.decode('latin-1')
+	dict_imagenes["imagen_logo_pr"] = imagen_logo_pr.decode('latin-1')
+	dict_imagenes["img_fondo_pie_pagina"] = img_fondo_pie_pagina.decode('latin-1')
+	dict_imagenes["fondo_contacto"] = fondo_contacto.decode('latin-1')
+	dict_imagenes["patron_shatered"] = patron_shatered.decode('latin-1')
+	dict_imagenes["imagenes_instagram"] = imagenes_instagram.decode('latin-1')
 	print(dict_imagenes["imagenes_atractivos"])
 	#try:
 	#	User("huichaman.juan@gmail.com", generate_password_hash("antrust..,2020")).save_to_db()
