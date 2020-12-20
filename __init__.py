@@ -456,14 +456,14 @@ def images():
 		imagenes_logos = []
 		imagenes_instagram = []
 		dict_imagenes = {}
-		list_inicio = os.listdir("static/images/inicio")
-		list_nosotros = os.listdir("static/images/nosotros")
-		list_servicios = os.listdir("static/images/servicios")
-		list_atractivos = os.listdir("static/images/atractivos")
-		list_como_llegar = os.listdir("static/images/como_llegar")
-		list_contacto = os.listdir("static/images/contacto")
-		list_logos = os.listdir("static/images/logos")
-		list_instagram = os.listdir("static/images/instagram")
+		list_inicio = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/inicio")
+		list_nosotros = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/nosotros")
+		list_servicios = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/servicios")
+		list_atractivos = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/atractivos")
+		list_como_llegar = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/como_llegar")
+		list_contacto = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/contacto")
+		list_logos = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/logos")
+		list_instagram = os.listdir("/var/www/rukaleufu/rukaleufustatic/images/instagram")
 
 		for c in imagenes:
 			if c.seccion=="inicio":
