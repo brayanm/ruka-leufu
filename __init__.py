@@ -6,7 +6,10 @@ from flask_mail import Mail, Message
 import os
 from datetime import datetime
 import sys
-sys.setdefaultencoding('utf-8')
+
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
 
 # Create the Flask object for the application
 app = Flask(__name__)
