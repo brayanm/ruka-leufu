@@ -103,7 +103,7 @@ def index():
 		if c.tag_contenido=="titulo":
 			titulo = c.contenido
 		if c.tag_contenido=="subtitulo":
-			subtitulo = c.contenido
+			subtitulo = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_cabanas":
 			titulo_cabanas = c.contenido
 		if c.tag_contenido=="titulo_tinajas":
