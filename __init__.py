@@ -99,7 +99,7 @@ def index():
 		if c.tag_contenido=="correo":
 			correo += c.contenido.decode('latin-1')
 		if c.tag_contenido=="nosotros":
-			nosotros = c.contenido.split("\r").decode('latin-1')
+			nosotros = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="titulo":
 			titulo = c.contenido.decode('latin-1')
 		if c.tag_contenido=="subtitulo":
@@ -111,15 +111,15 @@ def index():
 		if c.tag_contenido=="titulo_camping":
 			titulo_camping = c.contenido.decode('latin-1')
 		if c.tag_contenido=="contenido_cabanas":
-			contenido_cabanas = c.contenido.split("\r").decode('latin-1')
+			contenido_cabanas = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="contenido_tinajas":
-			contenido_tinajas = c.contenido.split("\r").decode('latin-1')
+			contenido_tinajas = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="contenido_camping":
-			contenido_camping = c.contenido.split("\r").decode('latin-1')
+			contenido_camping = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="contenido_tarifa_temporada_alta":
-			tarifa_temporada_alta = c.contenido.split("\r").decode('latin-1')
+			tarifa_temporada_alta = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="contenido_tarifa_temporada_baja":
-			tarifa_temporada_baja = c.contenido.split("\r").decode('latin-1')
+			tarifa_temporada_baja = c.contenido.decode('latin-1').split("\r")
 		if c.tag_contenido=="titulo_atractivos":
 			titulo_atractivos = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_nosotros":
