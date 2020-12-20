@@ -97,47 +97,47 @@ def index():
 			else:
 				telefono += c.contenido+ " "
 		if c.tag_contenido=="correo":
-			correo += c.contenido
+			correo += c.contenido.decode('latin-1')
 		if c.tag_contenido=="nosotros":
-			nosotros = c.contenido.split("\r")
+			nosotros = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="titulo":
-			titulo = c.contenido
+			titulo = c.contenido.decode('latin-1')
 		if c.tag_contenido=="subtitulo":
 			subtitulo = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_cabanas":
-			titulo_cabanas = c.contenido
+			titulo_cabanas = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_tinajas":
-			titulo_tinajas = c.contenido
+			titulo_tinajas = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_camping":
-			titulo_camping = c.contenido
+			titulo_camping = c.contenido.decode('latin-1')
 		if c.tag_contenido=="contenido_cabanas":
-			contenido_cabanas = c.contenido.split("\r")
+			contenido_cabanas = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="contenido_tinajas":
-			contenido_tinajas = c.contenido.split("\r")
+			contenido_tinajas = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="contenido_camping":
-			contenido_camping = c.contenido.split("\r")
+			contenido_camping = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="contenido_tarifa_temporada_alta":
-			tarifa_temporada_alta = c.contenido.split("\r")
+			tarifa_temporada_alta = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="contenido_tarifa_temporada_baja":
-			tarifa_temporada_baja = c.contenido.split("\r")
+			tarifa_temporada_baja = c.contenido.split("\r").decode('latin-1')
 		if c.tag_contenido=="titulo_atractivos":
-			titulo_atractivos = c.contenido
+			titulo_atractivos = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_nosotros":
-			titulo_nosotros = c.contenido
+			titulo_nosotros = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_tarifas":
-			titulo_tarifas = c.contenido
+			titulo_tarifas = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_servicios":
-			titulo_servicios = c.contenido
+			titulo_servicios = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_inicio":
-			titulo_inicio = c.contenido
+			titulo_inicio = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_como_llegar":
 			titulo_como_llegar = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_contacto":
-			titulo_contacto = c.contenido
+			titulo_contacto = c.contenido.decode('latin-1')
 		if c.tag_contenido=="titulo_seccion_atractivos":
-			titulo_seccion_atractivos = c.contenido
+			titulo_seccion_atractivos = c.contenido.decode('latin-1')
 		if c.tag_contenido=="horario_pie_pagina":
-			horario_pie_pagina = c.contenido
+			horario_pie_pagina = c.contenido.decode('latin-1')
 	dict_contenido["telefono"] = telefono
 	dict_contenido["correo"] = correo
 	dict_contenido["nosotros"] = nosotros
