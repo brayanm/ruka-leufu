@@ -5,7 +5,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Mail, Message
 import os
 from datetime import datetime
-
+import sys
+sys.setdefaultencoding('utf-8')
 
 # Create the Flask object for the application
 app = Flask(__name__)
