@@ -19,6 +19,10 @@ src: url('Rubik-Light.ttf');}
 @font-face{
 font-family: montserratxl;
 src: url('Montserrat-ExtraLight.ttf');}
+
+@font-face{
+font-family: kinghill;
+src: url('KingOfTheHill2.ttf');}
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
@@ -31,7 +35,7 @@ src: url('Montserrat-ExtraLight.ttf');}
 
 /* Top Bar
 --------------------------------------------------------------------------------------------------------------- */
-#topbar{padding:20px 0; font-size:.8rem;}
+#topbar{padding:20px 0; font-size:.9rem;}
 
 #topbar ul li{display:inline-block; margin-right:15px;}
 #topbar ul li:last-child{margin-right:0; padding-right:0; border-right:none;}
@@ -65,7 +69,7 @@ src: url('Montserrat-ExtraLight.ttf');}
 
 #pageintro article, #pageintro article p{display:block; max-width:75%; margin:0 auto; text-align:center;}
 #pageintro article p{max-width:65%; line-height:2rem;}
-#pageintro .heading{margin-bottom:20px; font-size:4rem;}
+#pageintro .heading{margin-bottom:20px; font-size:4rem;font-family: kinghill;}
 #pageintro footer{margin-top:50px;}
 
 
@@ -330,7 +334,7 @@ td{border-width:0 1px;}
 .faico{margin:0; padding:0; list-style:none;}
 .faico li{display:inline-block; margin:8px 5px 0 0; padding:0; line-height:normal;}
 .faico li:last-child{margin-right:0;}
-.faico a{display:inline-block; width:36px; height:36px; line-height:36px; font-size:18px; text-align:center;}
+.faico a{display:inline-block; width:66px; height:66px; line-height:36px; font-size:66px; text-align:center;}
 
 .faico a{color:#474747; background-color:rgba(255,255,255,.8);}
 .faico a:hover{color:#FFFFFF;}
@@ -376,8 +380,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#BDCA2A !important;}
 
 
 /* Rows */
-.row0{}
-.row1{border-color:rgba(255,255,255,.3);}
+.row0{background-color:#266150;}
+.row1{border-color:rgba(255,255,255,.6);background-color:#266150;}
 .row2{color:#474747; background-color:#F4F4F4;}
 .row3{color:#474747; background-color:#c5d6d8;}
 .row4{color:#A5A6AA; background-color:#27282E;}
@@ -779,4 +783,8 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   form.contact {
     width: 90% !important;
   }
+}
+
+.subtit{
+	font-size: 3vw;
 }

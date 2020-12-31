@@ -15,12 +15,12 @@
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay" style="background-image:url({{dict_imagenes['imagen_inicio']}});" id="section1"> 
   <!-- ################################################################################################ -->
-  <div class="wrapper row0" style="border-color: rgba(255,255,255,.3);position: fixed;z-index: 1">
+  <div class="wrapper row0" style="border-color: rgba(255,255,255,.3);position: fixed;z-index: 0">
     <div id="topbar" class="hoc clear">
       <div class="fl_left"> 
         <!-- ################################################################################################ -->
         <ul class="nospace">
-          <li><i class="fas fa-phone rgtspace-5"></i> {{dict_contenido["telefono"]}}</li>
+          <li><i class="fas fa-phone rgtspace-5"></i> <a style="color: #ffff;" href="tel:{{dict_contenido['telefono']}}">{{dict_contenido["telefono"]}}</a></li>
           <li><i class="far fa-envelope rgtspace-5"></i> {{dict_contenido["correo"]}}</li>
         </ul>
         <!-- ################################################################################################ -->
@@ -49,7 +49,7 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-<div class="navbar row1" style="margin-top: 40px;z-index: 0">
+<div class="navbar row1" style="margin-top: 40px;z-index: 1">
   <header id="header" class="hoc clear">
       <div id="logo" class="fl_left"> 
         <!-- ################################################################################################ -->
@@ -77,8 +77,8 @@
   <div id="pageintro" class="hoc clear" style="padding: 300px 0 400px;"> 
     <!-- ################################################################################################ -->
     <article>
-      <h3 class="heading">{{dict_contenido["titulo"]}}</h3>
-      <p>{{dict_contenido["subtitulo"]}}</p>
+      <img src="{{dict_imagenes['imagen_init_titulo']}}" style="width:100%">
+      <p class="subtit"><i>{{dict_contenido["subtitulo"]}}</i></p>
     </article>
     <!-- ################################################################################################ -->
   </div>
@@ -88,7 +88,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="bgded overlay" style="background-image:url({{dict_imagenes['imagen_fondo_nosotros']}});position: initial;" id="section2">
+<div class="bgded overlay" style="background-color:#9DC88D;position: initial;" id="section2">
   <section id="splitfifty" class="hoc container clear" style="padding: 200px 0 200px;">
     <div class="sectiontitle">
       <p class="heading underline font-x2">{{dict_contenido["titulo_nosotros"]}}</p>
@@ -117,11 +117,11 @@
       </div>
     <ul id="latest" class="nospace group">
       <li class="one_third first">
-        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas');currentSlide(1, 'modal_cabanas')"><img src="{{dict_imagenes['imagen_pr_cabanas']}}" alt=""></a>
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas_2');currentSlide(1, 'modal_cabanas_2')"><img src="{{dict_imagenes['imagen_pr_cabanas_2']}}" alt=""></a>
           <div class="excerpt">
-            <h6 class="heading">{{dict_contenido["titulo_cabanas"]}}</h6>
-            <div>
-              {% for value in dict_contenido["contenido_cabanas"] %}
+            <h6 class="heading">{{dict_contenido["titulo_cabanas_2"]}}</h6>
+            <div style="text-align:justify">
+              {% for value in dict_contenido["contenido_cabanas_2"] %}
                 {{value}}<br>
               {% endfor %}
               </div>
@@ -129,11 +129,11 @@
         </article>
       </li>
       <li class="one_third">
-        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_tinajas');currentSlide(1, 'modal_tinajas')"><img src="{{dict_imagenes['imagen_pr_tinajas']}}" alt=""></a>
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas_5_1');currentSlide(1, 'modal_cabanas_5_1')"><img src="{{dict_imagenes['imagen_pr_cabanas_5_1']}}" alt=""></a>
           <div class="excerpt">
-            <h6 class="heading">{{dict_contenido["titulo_tinajas"]}}</h6>
-            <div>
-              {% for value in dict_contenido["contenido_tinajas"] %}
+            <h6 class="heading">{{dict_contenido["titulo_cabanas_5"]}}</h6>
+            <div style="text-align:justify">
+              {% for value in dict_contenido["contenido_cabanas_5"] %}
                 {{value}}<br>
               {% endfor %}
             </div>
@@ -141,11 +141,35 @@
         </article>
       </li>
       <li class="one_third">
-        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_camping');currentSlide(1, 'modal_camping')"><img src="{{dict_imagenes['imagen_pr_camping']}}" alt=""></a>
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas_5_2');currentSlide(1, 'modal_cabanas_5_2')"><img src="{{dict_imagenes['imagen_pr_cabanas_5_2']}}" alt=""></a>
           <div class="excerpt">
-            <h6 class="heading">{{dict_contenido["titulo_camping"]}}</h6>
-            <div>
-              {% for value in dict_contenido["contenido_camping"] %}
+            <h6 class="heading">{{dict_contenido["titulo_cabanas_5"]}}</h6>
+            <div style="text-align:justify">
+              {% for value in dict_contenido["contenido_cabanas_5"] %}
+                {{value}}<br>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cabanas_8');currentSlide(1, 'modal_cabanas_8')"><img src="{{dict_imagenes['imagen_pr_cabanas_8']}}" alt=""></a>
+          <div class="excerpt">
+            <h6 class="heading">{{dict_contenido["titulo_cabanas_8"]}}</h6>
+            <div style="text-align:justify">
+              {% for value in dict_contenido["contenido_cabanas_8"] %}
+                {{value}}<br>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a class="imgover" href="javascript:void(0);" onclick="openModal('modal_cerveceria');currentSlide(1, 'modal_cerveceria')"><img src="{{dict_imagenes['imagen_pr_cerveceria']}}" alt=""></a>
+          <div class="excerpt">
+            <h6 class="heading">{{dict_contenido["titulo_cerveceria"]}}</h6>
+            <div style="text-align:justify">
+              {% for value in dict_contenido["contenido_cerveceria"] %}
                 {{value}}<br>
               {% endfor %}
             </div>
@@ -158,43 +182,46 @@
       <div class="sectiontitle">
         <p class="heading underline font-x2">{{dict_contenido["titulo_tarifas"]}}</p>
       </div>
-      <ul id="latest" class="nospace group">
-      <li class="one_third first">
-        <article>
-            <div class="clear"><i class="fas fa-sun"></i>
-              <h6 class="heading">Temporada Alta</h6>
-            </div>
-          <div class="excerpt topl">
-            <div>
-              {% for value in dict_contenido["tarifa_temporada_alta"] %}
-                {{value}}<br>
-              {% endfor %}
-              </div>
-          </div>
-        </article>
-      </li>
-      <li class="one_third">
-        <article>
-            <div class="clear"><i class="fas fa-cloud"></i>
-              <h6 class="heading">Temporada Baja</h6>
-            </div>
-          <div class="excerpt topl">
-            <div>
-              {% for value in dict_contenido["tarifa_temporada_baja"] %}
-                {{value}}<br>
-              {% endfor %}
-              </div>
-          </div>
-        </article>
-      </li>
-      </ul>
+      <div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th style="text-align:center">Servicio</th>
+                    <th style="text-align:center">Tarifa Temporada Alta</th>
+                    <th style="text-align:center">Tarifa Temporada Baja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:center">Caba&ntilde;a 2 Personas</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_2_alta"]}}</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_2_baja"]}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">Caba&ntilde;a 5 Personas</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_5_alta"]}}</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_5_baja"]}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">Caba&ntilde;a 8 Personas</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_8_alta"]}}</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_cabana_8_baja"]}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">Ba&ntilde;o de Tinaja Caliente</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_tinaja_alta"]}}</td>
+                    <td style="text-align:center">{{dict_contenido["tarifa_tinaja_baja"]}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
     </section>
     </main>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2" id="section4" style="background-color: #c5d6d8;">
+<div class="wrapper row2" id="section4" style="background-color: #9DC88D;">
   <div class="hoc container clear" style="padding: 200px 0 200px;"> 
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
@@ -302,8 +329,6 @@
       <ul class="faico clear">
         <li><a class="faicon-facebook" href="{{dict_link['facebook']}}" target="_blank"><i class="fab fa-facebook"></i></a></li>
         <li><a class="faicon-instagram" href="{{dict_link['instagram']}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-        <li><a class="faicon-youtube" href="#"><i class="fab fa-youtube"></i></a></li>
       </ul>
     </div>
     <!-- ################################################################################################ -->
@@ -364,83 +389,139 @@
 </div>
 
 <!-- The Modal/Lightbox -->
-<div id="modal_cabanas" class="modal">
-  <span class="close cursor" onclick="closeModal('modal_cabanas')">&times;</span>
+<div id="modal_cabanas_2" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cabanas_2')">&times;</span>
   <div class="modal-content" >
     <!-- Caption text -->
     <div class="caption-container">
       <p id="caption_modal_cabanas"></p>
     </div>
-    {% for i in range(dict_imagenes["imagenes_cabanas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_2"]|length) %}
     <div class="mySlides">
-      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas"]|length }}</div>
-      <img src="{{dict_imagenes['imagenes_cabanas'][i][0]}}" style="width:100%">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas_2"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabanas_2'][i][0]}}" style="width:100%">
     </div>
     {% endfor %}
 
     <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas')">&#10094;</a>
-    <a class="next" onclick="plusSlides(1,'modal_cabanas')">&#10095;</a>
+    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas_2')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1,'modal_cabanas_2')">&#10095;</a>
 
     <!-- Thumbnail image controls -->
-    {% for i in range(dict_imagenes["imagenes_cabanas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_2"]|length) %}
     <div class="column">
-      <img class="demo" src="{{dict_imagenes['imagenes_cabanas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas')" alt="{{dict_imagenes['imagenes_cabanas'][i][1]}}">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabanas_2'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas_2')" alt="{{dict_imagenes['imagenes_cabanas_2'][i][1]}}">
     </div>
     {% endfor %}
   </div>
 </div>
 <!-- The Modal/Lightbox -->
-<div id="modal_tinajas" class="modal">
-  <span class="close cursor" onclick="closeModal('modal_tinajas')">&times;</span>
+<div id="modal_cabanas_5_1" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cabanas_5_1')">&times;</span>
   <div class="modal-content" >
     <!-- Caption text -->
     <div class="caption-container">
       <p id="caption_modal_tinajas"></p>
     </div>
-    {% for i in range(dict_imagenes["imagenes_tinajas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_5_1"]|length) %}
     <div class="mySlides">
-      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_tinajas"]|length }}</div>
-      <img src="{{dict_imagenes['imagenes_tinajas'][i][0]}}" style="width:100%">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas_5_1"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabanas_5_1'][i][0]}}" style="width:100%">
     </div>
     {% endfor %}
 
     <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1, 'modal_tinajas')">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 'modal_tinajas')">&#10095;</a>
+    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas_5_1')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_cabanas_5_1')">&#10095;</a>
 
     <!-- Thumbnail image controls -->
-    {% for i in range(dict_imagenes["imagenes_tinajas"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_5_1"]|length) %}
     <div class="column">
-      <img class="demo" src="{{dict_imagenes['imagenes_tinajas'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_tinajas')" alt="{{dict_imagenes['imagenes_tinajas'][i][1]}}">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabanas_5_1'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas_5_1')" alt="{{dict_imagenes['imagenes_cabanas_5_1'][i][1]}}">
     </div>
     {% endfor %}
   </div>
 </div>
 
 <!-- The Modal/Lightbox -->
-<div id="modal_camping" class="modal">
-  <span class="close cursor" onclick="closeModal('modal_camping')">&times;</span>
+<div id="modal_cabanas_5_2" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cabanas_5_2')">&times;</span>
   <div class="modal-content" >
     <!-- Caption text -->
     <div class="caption-container">
       <p id="caption_modal_camping"></p>
     </div>
-    {% for i in range(dict_imagenes["imagenes_camping"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_5_2"]|length) %}
     <div class="mySlides">
-      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_camping"]|length }}</div>
-      <img src="{{dict_imagenes['imagenes_camping'][i][0]}}" style="width:100%">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas_5_2"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabanas_5_2'][i][0]}}" style="width:100%">
     </div>
     {% endfor %}
 
     <!-- Next/previous controls -->
-    <a class="prev" onclick="plusSlides(-1, 'modal_camping')">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 'modal_camping')">&#10095;</a>
+    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas_5_2')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_cabanas_5_2')">&#10095;</a>
 
     <!-- Thumbnail image controls -->
-    {% for i in range(dict_imagenes["imagenes_camping"]|length) %}
+    {% for i in range(dict_imagenes["imagenes_cabanas_5_2"]|length) %}
     <div class="column">
-      <img class="demo" src="{{dict_imagenes['imagenes_camping'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_camping')" alt="{{dict_imagenes['imagenes_camping'][i][1]}}">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabanas_5_2'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas_5_2')" alt="{{dict_imagenes['imagenes_cabanas_5_2'][i][1]}}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="modal_cabanas_8" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cabanas_8')">&times;</span>
+  <div class="modal-content" >
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption_modal_camping"></p>
+    </div>
+    {% for i in range(dict_imagenes["imagenes_cabanas_8"]|length) %}
+    <div class="mySlides">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cabanas_8"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cabanas_8'][i][0]}}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1, 'modal_cabanas_8')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_cabanas_8')">&#10095;</a>
+
+    <!-- Thumbnail image controls -->
+    {% for i in range(dict_imagenes["imagenes_cabanas_8"]|length) %}
+    <div class="column">
+      <img class="demo" src="{{dict_imagenes['imagenes_cabanas_8'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cabanas_8')" alt="{{dict_imagenes['imagenes_cabanas_8'][i][1]}}">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="modal_cerveceria" class="modal">
+  <span class="close cursor" onclick="closeModal('modal_cerveceria')">&times;</span>
+  <div class="modal-content" >
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption_modal_camping"></p>
+    </div>
+    {% for i in range(dict_imagenes["imagenes_cerveceria"]|length) %}
+    <div class="mySlides">
+      <div class="numbertext">{{i+1}} / {{ dict_imagenes["imagenes_cerveceria"]|length }}</div>
+      <img src="{{dict_imagenes['imagenes_cerveceria'][i][0]}}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1, 'modal_cerveceria')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'modal_cerveceria')">&#10095;</a>
+
+    <!-- Thumbnail image controls -->
+    {% for i in range(dict_imagenes["imagenes_cerveceria"]|length) %}
+    <div class="column">
+      <img class="demo" src="{{dict_imagenes['imagenes_cerveceria'][i][0]}}" onclick="currentSlide('{{i+1}}', 'modal_cerveceria')" alt="{{dict_imagenes['imagenes_cerveceria'][i][1]}}">
     </div>
     {% endfor %}
   </div>

@@ -14,8 +14,8 @@ if sys.version[0] == '2':
 # Create the Flask object for the application
 app = Flask(__name__)
 app.secret_key = 'ckpZQrmDFXXEkIfRYh3nxVa61ycYdoP6'
-engine = create_engine('mysql://root:Antrust..,2020@localhost:3306/ruka_leufu')
-#engine = create_engine('mysql://root@localhost:3306/ruka_leufu')
+#engine = create_engine('mysql://root:Antrust..,2020@localhost:3306/ruka_leufu')
+engine = create_engine('mysql://root@localhost:3306/ruka_leufu')
 mail= Mail(app)
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
@@ -103,69 +103,69 @@ def index():
 	tarifa_tinaja_baja = ""
 	for c in contenido:
 		if c.tag_contenido=="telefono1":
-			telefono += c.contenido
+			telefono += c.contenido+ " "
 		if c.tag_contenido=="correo":
-			correo += c.contenido.decode('latin-1')
+			correo += c.contenido
 		if c.tag_contenido=="nosotros":
-			nosotros = c.contenido.decode('latin-1').split("\r")
+			nosotros = c.contenido.split("\r")
 		if c.tag_contenido=="titulo":
-			titulo = c.contenido.decode('latin-1')
+			titulo = c.contenido
 		if c.tag_contenido=="subtitulo":
-			subtitulo = c.contenido.decode('latin-1')
+			subtitulo = c.contenido
 		if c.tag_contenido=="titulo_cabanas_2":
-			titulo_cabanas_2 = c.contenido.decode('latin-1')
+			titulo_cabanas_2 = c.contenido
 		if c.tag_contenido=="titulo_cabanas_5":
-			titulo_cabanas_5 = c.contenido.decode('latin-1')
+			titulo_cabanas_5 = c.contenido
 		if c.tag_contenido=="titulo_cabanas_8":
-			titulo_cabanas_8 = c.contenido.decode('latin-1')
+			titulo_cabanas_8 = c.contenido
 		if c.tag_contenido=="titulo_cerveceria":
-			titulo_cerveceria = c.contenido.decode('latin-1')
+			titulo_cerveceria = c.contenido
 		if c.tag_contenido=="contenido_cabanas_2":
-			contenido_cabanas_2 = c.contenido.decode('latin-1').split("\r")
+			contenido_cabanas_2 = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_cabanas_5":
-			contenido_cabanas_5 = c.contenido.decode('latin-1').split("\r")
+			contenido_cabanas_5 = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_cabanas_8":
-			contenido_cabanas_8 = c.contenido.decode('latin-1').split("\r")
+			contenido_cabanas_8 = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_cerveceria":
-			contenido_cerveceria = c.contenido.decode('latin-1').split("\r")
+			contenido_cerveceria = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_tarifa_temporada_alta":
-			tarifa_temporada_alta = c.contenido.decode('latin-1').split("\r")
+			tarifa_temporada_alta = c.contenido.split("\r")
 		if c.tag_contenido=="contenido_tarifa_temporada_baja":
-			tarifa_temporada_baja = c.contenido.decode('latin-1').split("\r")
+			tarifa_temporada_baja = c.contenido.split("\r")
 		if c.tag_contenido=="titulo_atractivos":
-			titulo_atractivos = c.contenido.decode('latin-1')
+			titulo_atractivos = c.contenido
 		if c.tag_contenido=="titulo_nosotros":
-			titulo_nosotros = c.contenido.decode('latin-1')
+			titulo_nosotros = c.contenido
 		if c.tag_contenido=="titulo_tarifas":
-			titulo_tarifas = c.contenido.decode('latin-1')
+			titulo_tarifas = c.contenido
 		if c.tag_contenido=="titulo_servicios":
-			titulo_servicios = c.contenido.decode('latin-1')
+			titulo_servicios = c.contenido
 		if c.tag_contenido=="titulo_inicio":
-			titulo_inicio = c.contenido.decode('latin-1')
+			titulo_inicio = c.contenido
 		if c.tag_contenido=="titulo_como_llegar":
-			titulo_como_llegar = c.contenido.decode('latin-1')
+			titulo_como_llegar = c.contenido
 		if c.tag_contenido=="titulo_contacto":
-			titulo_contacto = c.contenido.decode('latin-1')
+			titulo_contacto = c.contenido
 		if c.tag_contenido=="titulo_seccion_atractivos":
-			titulo_seccion_atractivos = c.contenido.decode('latin-1')
+			titulo_seccion_atractivos = c.contenido
 		if c.tag_contenido=="horario_pie_pagina":
-			horario_pie_pagina = c.contenido.decode('latin-1')
+			horario_pie_pagina = c.contenido
 		if c.tag_contenido=="tarifa_cabana_2_alta":
-			tarifa_cabana_2_alta = c.contenido.decode('latin-1')
+			tarifa_cabana_2_alta = c.contenido
 		if c.tag_contenido=="tarifa_cabana_2_baja":
-			tarifa_cabana_2_baja = c.contenido.decode('latin-1')
+			tarifa_cabana_2_baja = c.contenido
 		if c.tag_contenido=="tarifa_cabana_5_alta":
-			tarifa_cabana_5_alta = c.contenido.decode('latin-1')
+			tarifa_cabana_5_alta = c.contenido
 		if c.tag_contenido=="tarifa_cabana_5_baja":
-			tarifa_cabana_5_baja = c.contenido.decode('latin-1')
+			tarifa_cabana_5_baja = c.contenido
 		if c.tag_contenido=="tarifa_cabana_8_alta":
-			tarifa_cabana_8_alta = c.contenido.decode('latin-1')
+			tarifa_cabana_8_alta = c.contenido
 		if c.tag_contenido=="tarifa_cabana_8_baja":
-			tarifa_cabana_8_baja = c.contenido.decode('latin-1')
+			tarifa_cabana_8_baja = c.contenido
 		if c.tag_contenido=="tarifa_tinaja_alta":
-			tarifa_tinaja_alta = c.contenido.decode('latin-1')
+			tarifa_tinaja_alta = c.contenido
 		if c.tag_contenido=="tarifa_tinaja_baja":
-			tarifa_tinaja_baja = c.contenido.decode('latin-1')
+			tarifa_tinaja_baja = c.contenido
 	dict_contenido["telefono"] = telefono
 	dict_contenido["correo"] = correo
 	dict_contenido["nosotros"] = nosotros
@@ -221,47 +221,47 @@ def index():
 	imagen_init_titulo = ""
 	for i in imagenes:
 		if i.subseccion=="inicio_background":
-			imagen_inicio = i.imagen.decode('latin-1')
+			imagen_inicio = i.imagen
 		if i.subseccion=="inicio_titulo":
-			imagen_init_titulo = i.imagen.decode('latin-1')
+			imagen_init_titulo = i.imagen
 		if i.subseccion=="cabanas_2":
-			imagenes_cabanas_2.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
+			imagenes_cabanas_2.append((i.imagen, i.titulo))
 		if i.subseccion=="cabanas_5_1":
-			imagenes_cabanas_5_1.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
+			imagenes_cabanas_5_1.append((i.imagen, i.titulo))
 		if i.subseccion=="cabanas_5_2":
-			imagenes_cabanas_5_2.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))	
+			imagenes_cabanas_5_2.append((i.imagen, i.titulo))	
 		if i.subseccion=="cabanas_8":
-			imagenes_cabanas_8.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))	
+			imagenes_cabanas_8.append((i.imagen, i.titulo))	
 		if i.subseccion=="cerveceria":
-			imagenes_cerveceria.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1')))
+			imagenes_cerveceria.append((i.imagen, i.titulo))	
 		if i.seccion=="atractivos":
-			imagenes_atractivos.append((i.imagen.decode('latin-1'), i.titulo.decode('latin-1'), i.subtitulo.decode('latin-1')))
+			imagenes_atractivos.append((i.imagen, i.titulo, i.subtitulo))
 		if i.seccion=="como_llegar":
-			imagen_mapa = i.imagen.decode('latin-1')
+			imagen_mapa = i.imagen
 		if i.subseccion=="cabanas_2" and i.principal==1:
-			imagen_pr_cabanas_2 = i.imagen.decode('latin-1')
+			imagen_pr_cabanas_2 = i.imagen
 		if i.subseccion=="cabanas_5_1" and i.principal==1:
-			imagen_pr_cabanas_5_1 = i.imagen.decode('latin-1')
+			imagen_pr_cabanas_5_1 = i.imagen
 		if i.subseccion=="cabanas_5_2" and i.principal==1:
-			imagen_pr_cabanas_5_2 = i.imagen.decode('latin-1')
+			imagen_pr_cabanas_5_2 = i.imagen
 		if i.subseccion=="cabanas_8" and i.principal==1:
-			imagen_pr_cabanas_8 = i.imagen.decode('latin-1')
+			imagen_pr_cabanas_8 = i.imagen
 		if i.subseccion=="cerveceria" and i.principal==1:
-			imagen_pr_cerveceria = i.imagen.decode('latin-1')
+			imagen_pr_cerveceria = i.imagen
 		if i.subseccion=="fondo_nosotros":
-			imagen_fondo_nosotros = i.imagen.decode('latin-1')
+			imagen_fondo_nosotros = i.imagen
 		if i.subseccion=="fondo_texto_nosotros":
-			imagen_txt_fondo_nosotros = i.imagen.decode('latin-1')
+			imagen_txt_fondo_nosotros = i.imagen
 		if i.subseccion=="logo_principal":
-			imagen_logo_pr = i.imagen.decode('latin-1')
+			imagen_logo_pr = i.imagen
 		if i.subseccion=="fondo_pie_pagina":
-			img_fondo_pie_pagina = i.imagen.decode('latin-1')
+			img_fondo_pie_pagina = i.imagen
 		if i.subseccion=="fondo_contacto":
-			fondo_contacto = i.imagen.decode('latin-1')
+			fondo_contacto = i.imagen
 		if i.subseccion=="patron_shatered":
-			patron_shatered = i.imagen.decode('latin-1')
+			patron_shatered = i.imagen
 		if i.seccion=="instagram":
-			imagenes_instagram.append(i.imagen.decode('latin-1'))
+			imagenes_instagram.append(i.imagen)
 	dict_imagenes["imagen_inicio"] = imagen_inicio
 	dict_imagenes["imagenes_cabanas_2"] = imagenes_cabanas_2
 	dict_imagenes["imagenes_cabanas_5_1"] = imagenes_cabanas_5_1
@@ -283,7 +283,7 @@ def index():
 	dict_imagenes["imagen_init_titulo"] = imagen_init_titulo
 	dict_imagenes["imagenes_cerveceria"] = imagenes_cerveceria
 	dict_imagenes["imagen_pr_cerveceria"] = imagen_pr_cerveceria
-	#print(dict_imagenes["imagenes_atractivos"])
+	print(dict_imagenes["imagenes_atractivos"])
 	#try:
 	#	User("huichaman.juan@gmail.com", generate_password_hash("antrust..,2020")).save_to_db()
 	#except Exception as e:
@@ -351,17 +351,17 @@ def config():
 		dict_contenido = {}
 		for c in contenido:
 			if c.seccion=="inicio":
-				contenido_inicio.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_inicio.append((c.titulo, c.tag_contenido, c.contenido))
 			if c.seccion=="nosotros":
-				contenido_nosotros.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_nosotros.append((c.titulo, c.tag_contenido, c.contenido))
 			if c.seccion=="servicios":
-				contenido_servicios.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_servicios.append((c.titulo, c.tag_contenido, c.contenido))
 			if c.seccion=="atractivos":
-				contenido_atractivos.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_atractivos.append((c.titulo, c.tag_contenido, c.contenido))
 			if c.seccion=="como_llegar":
-				contenido_como_llegar.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_como_llegar.append((c.titulo, c.tag_contenido, c.contenido))
 			if c.seccion=="contacto":
-				contenido_contacto.append((c.titulo.decode('latin-1'), c.tag_contenido.decode('latin-1'), c.contenido.decode('latin-1')))
+				contenido_contacto.append((c.titulo, c.tag_contenido, c.contenido))
 		dict_contenido["contenido_inicio"] = contenido_inicio
 		dict_contenido["contenido_nosotros"] = contenido_nosotros
 		dict_contenido["contenido_servicios"] = contenido_servicios
@@ -514,32 +514,32 @@ def images():
 		imagenes_logos = []
 		imagenes_instagram = []
 		dict_imagenes = {}
-		list_inicio = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/inicio")
-		list_nosotros = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/nosotros")
-		list_servicios = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/servicios")
-		list_atractivos = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/atractivos")
-		list_como_llegar = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/como_llegar")
-		list_contacto = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/contacto")
-		list_logos = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/logos")
-		list_instagram = os.listdir("/var/www/rukaleufu/rukaleufu/static/images/instagram")
+		list_inicio = os.listdir("static/images/inicio")
+		list_nosotros = os.listdir("static/images/nosotros")
+		list_servicios = os.listdir("static/images/servicios")
+		list_atractivos = os.listdir("static/images/atractivos")
+		list_como_llegar = os.listdir("static/images/como_llegar")
+		list_contacto = os.listdir("static/images/contacto")
+		list_logos = os.listdir("static/images/logos")
+		list_instagram = os.listdir("static/images/instagram")
 
 		for c in imagenes:
 			if c.seccion=="inicio":
-				imagenes_inicio.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
+				imagenes_inicio.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="nosotros":
-				imagenes_nosotros.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
+				imagenes_nosotros.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="servicios":
-				imagenes_servicios.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.subseccion.decode('latin-1'), c.principal))
+				imagenes_servicios.append((c.id, c.imagen, c.titulo, c.subtitulo, c.subseccion, c.principal))
 			if c.seccion=="atractivos":
-				imagenes_atractivos.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
+				imagenes_atractivos.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="como_llegar":
-				imagenes_como_llegar.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
+				imagenes_como_llegar.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="contacto":
-				imagenes_contacto.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1'), c.principal))
+				imagenes_contacto.append((c.id, c.imagen, c.titulo, c.subtitulo, c.principal))
 			if c.seccion=="logos":
-				imagenes_logos.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
+				imagenes_logos.append((c.id, c.imagen, c.titulo, c.subtitulo))
 			if c.seccion=="instagram":
-				imagenes_instagram.append((c.id, c.imagen.decode('latin-1'), c.titulo.decode('latin-1'), c.subtitulo.decode('latin-1')))
+				imagenes_instagram.append((c.id, c.imagen, c.titulo, c.subtitulo))
 		dict_imagenes["imagenes_inicio"] = imagenes_inicio
 		dict_imagenes["imagenes_nosotros"] = imagenes_nosotros
 		dict_imagenes["imagenes_servicios"] = imagenes_servicios
