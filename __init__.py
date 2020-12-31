@@ -20,8 +20,8 @@ mail= Mail(app)
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'bemirag@gmail.com'
-app.config['MAIL_PASSWORD'] = 'flancueces'
+app.config['MAIL_USERNAME'] = 'reservasrukaleufu@gmail.com'
+app.config['MAIL_PASSWORD'] = 'Antrust..,2020'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -566,12 +566,17 @@ def contact():
 	email = request.form['email']
 	mensaje = request.form['mensaje']
 	fecha = str(datetime.now())
+	msg_send = "Hola, tienes una nueva reserva, a continuación los datos: <br>"
+	msg_send += "Fecha: "+fecha+"<br>"
+	msg_send += "Nombre: "+nombre+"<br>"
+	msg_send += "Email: "+email+"<br>"
+	msg_send += "Mensaje: "+mensaje+"<br>"
 	try:
 		connection.execute('INSERT INTO mensaje (nombre, email, mensaje, fecha) VALUES ("'+nombre+'", "'+email+'", "'+mensaje+'", "'+fecha+'")')
 	except Exception as e:
 		print(e)
-	msg = Message('Contacto '+nombre, sender = email, recipients = ['bemirag@gmail.com'])
-	msg.body = mensaje
+	msg = Message('Reserva '+nombre, sender = email, recipients = ['rukaleufuchile@gmail.com'])
+	msg.html = msg_send
 	mail.send(msg)
 	return json.dumps({'status':'OK'})
 

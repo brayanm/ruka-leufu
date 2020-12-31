@@ -4,6 +4,8 @@ $(document).ready(function(){
     var nombre = $('#nombre').val()
     var email = $('#email').val()
     var mensaje = $('#mensaje').val()
+    $("#msg_mail").html("Estamos enviando tu mensaje, por favor espere...");
+    $("#msg_mail").show();
     $.ajax({
       url: '/contact',
       data: {nombre: nombre, email: email, mensaje: mensaje},
