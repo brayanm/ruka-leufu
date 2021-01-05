@@ -101,6 +101,7 @@ def index():
 	tarifa_cabana_8_baja = ""
 	tarifa_tinaja_alta = ""
 	tarifa_tinaja_baja = ""
+	ano_tarifa = ""
 	for c in contenido:
 		if c.tag_contenido=="telefono1":
 			telefono += c.contenido
@@ -166,6 +167,8 @@ def index():
 			tarifa_tinaja_alta = c.contenido.decode('latin-1')
 		if c.tag_contenido=="tarifa_tinaja_baja":
 			tarifa_tinaja_baja = c.contenido.decode('latin-1')
+		if c.tag_contenido=="ano_tarifa":
+			ano_tarifa = c.contenido.decode('latin-1')
 	dict_contenido["telefono"] = telefono
 	dict_contenido["correo"] = correo
 	dict_contenido["nosotros"] = nosotros
@@ -198,6 +201,7 @@ def index():
 	dict_contenido["tarifa_cabana_8_baja"] = tarifa_cabana_8_baja
 	dict_contenido["tarifa_tinaja_alta"] = tarifa_tinaja_alta
 	dict_contenido["tarifa_tinaja_baja"] = tarifa_tinaja_baja
+	dict_contenido["ano_tarifa"] = ano_tarifa
 	imagen_inicio = ""
 	imagenes_cabanas_2 = []
 	imagenes_cabanas_5_1 = []
@@ -728,7 +732,7 @@ def upload_images():
 @app.route('/upload_files', methods=['GET', 'POST'])
 def upload_files():
 	if 'loggedin' in session:
-		return render_template('upload_files.html')
+		return render_template('upload_files.html', user=session['username'])
 	return redirect(url_for('login'))
 
 

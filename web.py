@@ -94,13 +94,10 @@ def index():
 	titulo_cerveceria = ""
 	contenido_cerveceria = ""
 	tarifa_cabana_2_alta = ""
-	tarifa_cabana_2_baja = ""
 	tarifa_cabana_5_alta = ""
-	tarifa_cabana_5_baja = ""
 	tarifa_cabana_8_alta = ""
-	tarifa_cabana_8_baja = ""
 	tarifa_tinaja_alta = ""
-	tarifa_tinaja_baja = ""
+	ano_tarifa = ""
 	for c in contenido:
 		if c.tag_contenido=="telefono1":
 			telefono += c.contenido+ " "
@@ -152,20 +149,14 @@ def index():
 			horario_pie_pagina = c.contenido
 		if c.tag_contenido=="tarifa_cabana_2_alta":
 			tarifa_cabana_2_alta = c.contenido
-		if c.tag_contenido=="tarifa_cabana_2_baja":
-			tarifa_cabana_2_baja = c.contenido
 		if c.tag_contenido=="tarifa_cabana_5_alta":
 			tarifa_cabana_5_alta = c.contenido
-		if c.tag_contenido=="tarifa_cabana_5_baja":
-			tarifa_cabana_5_baja = c.contenido
 		if c.tag_contenido=="tarifa_cabana_8_alta":
 			tarifa_cabana_8_alta = c.contenido
-		if c.tag_contenido=="tarifa_cabana_8_baja":
-			tarifa_cabana_8_baja = c.contenido
 		if c.tag_contenido=="tarifa_tinaja_alta":
 			tarifa_tinaja_alta = c.contenido
-		if c.tag_contenido=="tarifa_tinaja_baja":
-			tarifa_tinaja_baja = c.contenido
+		if c.tag_contenido=="ano_tarifa":
+			ano_tarifa = c.contenido
 	dict_contenido["telefono"] = telefono
 	dict_contenido["correo"] = correo
 	dict_contenido["nosotros"] = nosotros
@@ -191,13 +182,10 @@ def index():
 	dict_contenido["titulo_cerveceria"] = titulo_cerveceria
 	dict_contenido["contenido_cerveceria"] = contenido_cerveceria
 	dict_contenido["tarifa_cabana_2_alta"] = tarifa_cabana_2_alta
-	dict_contenido["tarifa_cabana_2_baja"] = tarifa_cabana_2_baja
 	dict_contenido["tarifa_cabana_5_alta"] = tarifa_cabana_5_alta
-	dict_contenido["tarifa_cabana_5_baja"] = tarifa_cabana_5_baja
 	dict_contenido["tarifa_cabana_8_alta"] = tarifa_cabana_8_alta
-	dict_contenido["tarifa_cabana_8_baja"] = tarifa_cabana_8_baja
 	dict_contenido["tarifa_tinaja_alta"] = tarifa_tinaja_alta
-	dict_contenido["tarifa_tinaja_baja"] = tarifa_tinaja_baja
+	dict_contenido["ano_tarifa"] = ano_tarifa
 	imagen_inicio = ""
 	imagenes_cabanas_2 = []
 	imagenes_cabanas_5_1 = []
@@ -728,7 +716,7 @@ def upload_images():
 @app.route('/upload_files', methods=['GET', 'POST'])
 def upload_files():
 	if 'loggedin' in session:
-		return render_template('upload_files.html')
+		return render_template('upload_files.html', user=session['username'])
 	return redirect(url_for('login'))
 
 
